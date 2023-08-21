@@ -5,16 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using CourseApp.Data;
+using CourseApp.Models;
 using WebApplication1;
-using WebApplication1.Data;
 
-namespace WebApplication1.Models
+namespace CourseApp.Controllers
 {
     public class CoursesController : Controller
     {
-        private readonly WebApplication1Context _context;
+        private readonly Course _context;
 
-        public CoursesController(WebApplication1Context context)
+        public CoursesController(Course context)
         {
             _context = context;
         }
@@ -22,9 +23,10 @@ namespace WebApplication1.Models
         // GET: Courses
         public async Task<IActionResult> Index()
         {
-              return _context.Course != null ? 
-                          View(await _context.Course.ToListAsync()) :
-                          Problem("Entity set 'WebApplication1Context.Course'  is null.");
+            ViewBag.nCourses = _context.Course.Count();
+            return _context.Course != null ?
+                        View(await _context.Course.ToListAsync()) :
+                        Problem("Entity set 'CourseAppDbContext.Course'  is null.");
         }
 
         // GET: Courses/Details/5
@@ -36,7 +38,7 @@ namespace WebApplication1.Models
             }
 
             var course = await _context.Course
-                .FirstOrDefaultAsync(m => m.CID == id);
+                .FirstOrDefaultAsync(m => m.CId == id);
             if (course == null)
             {
                 return NotFound();
@@ -56,7 +58,7 @@ namespace WebApplication1.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CID,CName,Technology,Status")] Course course)
+        public async Task<IActionResult> Create([Bind("CId,CName,CFee,Status,Technology")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +90,7 @@ namespace WebApplication1.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CID,CName,Technology,Status")] Course course)
+        public async Task<IActionResult> Edit(int id, [Bind("CId,CName,CFee,Status,Technology")] Course course)
         {
             if (id != course.CID)
             {
@@ -127,7 +129,7 @@ namespace WebApplication1.Models
             }
 
             var course = await _context.Course
-                .FirstOrDefaultAsync(m => m.CID == id);
+                .FirstOrDefaultAsync(m => m.CId == id);
             if (course == null)
             {
                 return NotFound();
@@ -143,21 +145,21 @@ namespace WebApplication1.Models
         {
             if (_context.Course == null)
             {
-                return Problem("Entity set 'WebApplication1Context.Course'  is null.");
+                return Problem("Entity set 'CourseAppDbContext.Course'  is null.");
             }
             var course = await _context.Course.FindAsync(id);
             if (course != null)
             {
                 _context.Course.Remove(course);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CourseExists(int id)
         {
-          return (_context.Course?.Any(e => e.CID == id)).GetValueOrDefault();
+            return (_context.Course?.Any(e => e.CId == id)).GetValueOrDefault();
         }
     }
 }

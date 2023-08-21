@@ -1,0 +1,94 @@
+﻿body {
+    background-color:white;
+        color: aquamarine;
+}
+
+.header{
+    position:absolute;
+    top:5%;
+    left:5%;
+    right:5%;
+    width:85%;
+    height:15%;
+    text-align:center;
+    background-color: antiquewhite;
+}
+
+.leftPanel{
+    position:absolute;
+    top: 25%;
+    left: 5%;
+    width:15%;
+    height:65%;
+    text-align:left;
+    background-color: blue;
+}
+
+.mainPanel{
+    position: absolute;
+    top:25%;
+    left:22.5%;
+    right:5%;
+    width:55%;
+    height:65%;
+    text-align:center;
+}
+body{
+    background-color: yellow;
+    color:darkred;
+
+}
+
+.header {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    width: 85%;
+    height: 15%;
+    text-align: center;
+    background-color:darkgreen;
+}
+
+
+.leftPanel {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    width: 15%;
+    height: 65%;
+    text-align: left;
+    background-color: darkgray;
+}
+
+.mainPanel {
+    position: absolute;
+    top: 25%;
+    left: 22.5%;
+    right:5%;
+    width: 55%;
+    height: 65%;
+    text-align: center;
+    background-color: darkgray;
+}
+
+.rightPanel {
+    position: absolute;
+    top: 25%;
+    left: 80%;
+    width: 15%;
+    height: 65%;
+    text-align: right;
+    background-color: darkgray;
+}
+
+.footer {
+    position: absolute;
+    top: 91%;
+    height: 7%;
+    width: 85%;
+    right: 5%;
+    text-align: center;
+    background-color: orange;
+    color: black;
+}

@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "PartialAction";
+}
+
+<h1>PartialAction</h1>
+<partial name="OurPView"></partial>
+
+<h2>Using Action</h2>
+@await Html.PartialAsync("OurPView")

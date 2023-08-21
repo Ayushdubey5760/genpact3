@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/ourstyle.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    
+</head>
+<body>
+    <header class="header">
+        <h1>Layout Example One</h1>
+        <nav class="nav">
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="footer">All Rights are Reserved To Genpact Batch-3 DOT NET &reg;</footer>
+</body>
+</html>

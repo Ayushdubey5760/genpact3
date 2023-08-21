@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/ourstyle.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    
+    
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to Our Page!</h1>
+        </header>
+        
+        <div class="LeftPanel">
+            <ul>
+            
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+            
+            </ul>
+        
+        </div>
+        
+        <div class="RightPanel"> </div>
+        <div class="MainPanel">
+        @RenderBody()
+        </div>
+        <footer class="footer">
+            <p>All Right Reserved</p>
+        </footer>
+    
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

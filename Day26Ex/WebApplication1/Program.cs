@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using CourseApp.Data;
+using Course.Data;
+using WebApplication1;
 using WebApplication1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
